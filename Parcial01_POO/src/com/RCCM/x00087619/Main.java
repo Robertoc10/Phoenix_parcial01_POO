@@ -31,7 +31,7 @@ public class Main {
                             if(salario<=0)
                                 throw new ArithmeticException("Salario no valido!.");
 
-                            System.out.println("Extensión:"); extension= in.nextInt();
+                            System.out.println("Extensión(número telefonico de su oficina):"); extension= in.nextInt();
                             PlazaFija emp = new PlazaFija(nombre,puesto,salario,extension);
 
                             pago=CalculadoraImpuestos.calcularPago(emp);
@@ -60,7 +60,7 @@ public class Main {
                             System.out.println("Salario:"); salario= in.nextDouble();
                                 if(salario<=0)
                                     throw new ArithmeticException("Salario no valido!.");
-                            System.out.println("Meses del contrato:"); mesescontrato= in.nextInt();
+                            System.out.println("Número de meses del contrato:"); mesescontrato= in.nextInt();
                             ServicioProfesional emp1 = new ServicioProfesional(nombre,puesto,salario,mesescontrato);
                             pago=CalculadoraImpuestos.calcularPago(emp1);
                             System.out.println("Su salario liquido es: " + pago);
