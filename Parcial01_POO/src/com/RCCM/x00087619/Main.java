@@ -1,5 +1,6 @@
 package com.RCCM.x00087619;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 public class Main {
     static Scanner in = new Scanner(System.in);
     public static void main(String[] args) {
@@ -23,16 +24,25 @@ public class Main {
                     System.out.print(menusecundario); op2 = in.nextByte(); in.nextLine();
                     switch(op2){
                         case 1:
-
+                              try{
                             System.out.println("Nombre del empleado:"); nombre= in.nextLine();
                             System.out.println("Puesto:"); puesto= in.nextLine();
                             System.out.println("Salario:"); salario= in.nextDouble();
+                            if(salario<=0)
+                                throw new ArithmeticException("Salario no valido!.");
+
                             System.out.println("Extensión:"); extension= in.nextInt();
                             PlazaFija emp = new PlazaFija(nombre,puesto,salario,extension);
+
                             pago=CalculadoraImpuestos.calcularPago(emp);
                             System.out.println("Su salario liquido es: " + pago);
                             break;
-
+                              } catch (InputMismatchException e){
+                                  System.out.println("Problema con el Scanner!");
+                              }
+                              catch (ArithmeticException e) {
+                                  System.out.println("Error: " + e.getMessage());
+                              }
                         case 2:
                           totales= CalculadoraImpuestos.mostrarTotales();
                             System.out.println(totales);
@@ -44,15 +54,23 @@ public class Main {
                     System.out.print(menusecundario); op3 = in.nextByte(); in.nextLine();
                     switch(op3){
                         case 1:
+                            try{
                             System.out.println("Nombre del empleado:"); nombre= in.nextLine();
                             System.out.println("Puesto:"); puesto= in.nextLine();
                             System.out.println("Salario:"); salario= in.nextDouble();
+                                if(salario<=0)
+                                    throw new ArithmeticException("Salario no valido!.");
                             System.out.println("Meses del contrato:"); mesescontrato= in.nextInt();
                             ServicioProfesional emp1 = new ServicioProfesional(nombre,puesto,salario,mesescontrato);
                             pago=CalculadoraImpuestos.calcularPago(emp1);
                             System.out.println("Su salario liquido es: " + pago);
-
                     break;
+                            } catch (InputMismatchException e){
+                                System.out.println("Problema con el Scanner!");
+                            }
+                            catch (ArithmeticException e) {
+                                System.out.println("Error: " + e.getMessage());
+                            }
                         case 2:
                             totales= CalculadoraImpuestos.mostrarTotales();
                             System.out.println(totales);

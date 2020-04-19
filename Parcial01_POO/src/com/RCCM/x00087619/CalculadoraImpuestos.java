@@ -19,9 +19,7 @@ public final class CalculadoraImpuestos {
         double isss=0.0;
         double restante=0.0;
         double sueldoLiquido=0.0;
-        if(a.getSalario()<=0.0){
-            throw new ArithmeticException("Salario no valido");
-        } else{
+
         if(a instanceof ServicioProfesional){
             renta= 0.1*(a.getSalario());
             sueldoLiquido= a.getSalario()-renta;
@@ -53,7 +51,7 @@ public final class CalculadoraImpuestos {
         }
         return sueldoLiquido;
 
-    } }
+    }
 
 
     public static String mostrarTotales(){
