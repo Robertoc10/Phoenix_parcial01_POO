@@ -1,5 +1,4 @@
 package com.RCCM.x00087619;
-import java.util.ArrayList;
 import java.util.Scanner;
 public class Main {
     static Scanner in = new Scanner(System.in);
@@ -13,6 +12,7 @@ public class Main {
 
         byte op=0;
         byte op2=0;
+        byte op3=0;
         String nombre,puesto,totales;
         double salario,pago;
         int extension,mesescontrato;
@@ -23,6 +23,7 @@ public class Main {
                     System.out.print(menusecundario); op2 = in.nextByte(); in.nextLine();
                     switch(op2){
                         case 1:
+
                             System.out.println("Nombre del empleado:"); nombre= in.nextLine();
                             System.out.println("Puesto:"); puesto= in.nextLine();
                             System.out.println("Salario:"); salario= in.nextDouble();
@@ -30,20 +31,18 @@ public class Main {
                             PlazaFija emp = new PlazaFija(nombre,puesto,salario,extension);
                             pago=CalculadoraImpuestos.calcularPago(emp);
                             System.out.println("Su salario liquido es: " + pago);
-
                             break;
+
                         case 2:
                           totales= CalculadoraImpuestos.mostrarTotales();
                             System.out.println(totales);
                             break;
 
-
-
                     }
                     break;
                 case 2:
-                    System.out.print(menusecundario); op2 = in.nextByte(); in.nextLine();
-                    switch(op2){
+                    System.out.print(menusecundario); op3 = in.nextByte(); in.nextLine();
+                    switch(op3){
                         case 1:
                             System.out.println("Nombre del empleado:"); nombre= in.nextLine();
                             System.out.println("Puesto:"); puesto= in.nextLine();
@@ -59,6 +58,7 @@ public class Main {
                             System.out.println(totales);
                             break;
                         }
+
             }
 
         } while(op != 0);
